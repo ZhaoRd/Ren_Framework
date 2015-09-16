@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="WebEngine.cs" company="zhaord">
+// <copyright file="WebEngine.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // <summary>

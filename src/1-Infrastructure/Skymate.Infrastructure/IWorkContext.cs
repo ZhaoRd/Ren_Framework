@@ -18,12 +18,6 @@ namespace Skymate
         string CurrentCustomerId { get; set; }
 
         /// <summary>
-        /// Gets or sets the original customer (in case the current one is impersonated)
-        /// 获取原来的用户id
-        /// </summary>
-        string OriginalCustomerIdIfImpersonated { get; }
-
-        /// <summary>
         /// Gets or sets current user working language
         /// 获取或设置当前工作语言
         /// </summary>

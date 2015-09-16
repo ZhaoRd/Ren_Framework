@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="LogHelper.cs" company="zsharp">
-//   copyright (c) zsharp 2015 all right
+// <copyright file="LogHelper.cs" company="Skymate">
+//   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // <summary>
 //   This class can be used to write logs from somewhere where it's a little hard to get a reference to the <see cref="ILogger" />.
@@ -26,27 +26,51 @@ namespace Skymate.Logging
     public class LogHelper
     {
         /// <summary>
+        /// Initializes static members of the <see cref="LogHelper"/> class.
+        /// </summary>
+        static LogHelper()
+        {
+            var container = EngineContext.Current.Resolve<IWindsorContainer>();
+            Logger = container.Resolve<ILogger>();
+        }
+
+        /// <summary>
         /// A reference to the logger.
         /// </summary>
         public static ILogger Logger { get; private set; }
 
-        static LogHelper()
-        {
-            var container = EngineContext.Current.Resolve<IWindsorContainer>();
-            Logger =  container.Resolve<ILogger>();
-        }
-
+        /// <summary>
+        /// The log exception.
+        /// </summary>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         public static void LogException(Exception ex)
         {
             LogException(Logger, ex);
         }
 
+        /// <summary>
+        /// The log exception.
+        /// </summary>
+        /// <param name="logger">
+        /// The logger.
+        /// </param>
+        /// <param name="ex">
+        /// The ex.
+        /// </param>
         public static void LogException(ILogger logger, Exception ex)
         {
             logger.Error(ex.ToString(), ex);
             LogValidationErrors(ex);
         }
 
+        /// <summary>
+        /// The log validation errors.
+        /// </summary>
+        /// <param name="exception">
+        /// The exception.
+        /// </param>
         private static void LogValidationErrors(Exception exception)
         {
             if (exception is AggregateException && exception.InnerException != null)
@@ -72,7 +96,7 @@ namespace Skymate.Logging
             Logger.Warn("There are " + validationException.ValidationErrors.Count + " validation errors:");
             foreach (var validationResult in validationException.ValidationErrors)
             {
-                var memberNames = "";
+                var memberNames = string.Empty;
                 if (validationResult.MemberNames != null && validationResult.MemberNames.Any())
                 {
                     memberNames = " (" + string.Join(", ", validationResult.MemberNames) + ")";

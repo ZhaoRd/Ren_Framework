@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FormValueExistsAttribute.cs" company="zhaord">
+// <copyright file="FormValueExistsAttribute.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // <summary>

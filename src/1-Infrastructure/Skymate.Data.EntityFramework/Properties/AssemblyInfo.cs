@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Skymate.Infrastructure")]
-[assembly: AssemblyDescription("Skymate基础设置")]
+[assembly: AssemblyTitle("Skymate.Data.EntityFramework")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Skymate")]
-[assembly: AssemblyProduct("Skymate.Infrastructure")]
-[assembly: AssemblyCopyright("Copyright © 2015 Skymate. All rights reserved.")]
+[assembly: AssemblyCompany("Microsoft")]
+[assembly: AssemblyProduct("Skymate.Data.EntityFramework")]
+[assembly: AssemblyCopyright("Copyright © Microsoft 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("892fec06-2e63-4c44-b8c1-550232eaa126")]
+[assembly: Guid("ac77dcfc-da28-44f0-988c-3cf75c1ff3b0")]
 
 // 程序集的版本信息由下面四个值组成:
 //

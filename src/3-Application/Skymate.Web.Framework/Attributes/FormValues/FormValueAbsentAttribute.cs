@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FormValueAbsentAttribute.cs" company="zhaord">
+// <copyright file="FormValueAbsentAttribute.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------

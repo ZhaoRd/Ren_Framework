@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SkymateController.cs" company="zhaord">
+// <copyright file="SkymateController.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // <summary>

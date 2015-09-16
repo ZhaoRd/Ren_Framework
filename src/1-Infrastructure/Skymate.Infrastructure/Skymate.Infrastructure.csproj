@@ -58,7 +58,6 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -86,15 +85,12 @@
     <Compile Include="Collections\TopologicalSorter.cs" />
     <Compile Include="Collections\TopologicalSortExtensions.cs" />
     <Compile Include="Collections\TreeNode.cs" />
-    <Compile Include="Communication\ChannelFactoryManager.cs" />
-    <Compile Include="Communication\ServiceProxy.cs" />
     <Compile Include="ComparableObject.cs" />
     <Compile Include="ComparableObjectGeneric.cs" />
     <Compile Include="Configuration\ISettings.cs" />
     <Compile Include="Configuration\ISettingService.cs" />
     <Compile Include="Configuration\JsonPersistAttribute.cs" />
     <Compile Include="Data\DataSettings.cs" />
-    <Compile Include="Data\IActivatable.cs" />
     <Compile Include="Data\Notifies\INotifier.cs" />
     <Compile Include="Data\Notifies\NotifierExtension.cs" />
     <Compile Include="Data\Notifies\Notifier.cs" />
@@ -116,6 +112,7 @@
     <Compile Include="Entities\Auditing\IModificationAudited.cs" />
     <Compile Include="Entities\IPassivable.cs" />
     <Compile Include="Entities\ISoftDelete.cs" />
+    <Compile Include="Entities\ISkymateUnitOfWork.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Expressions\RegularExpressions.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
@@ -145,7 +142,6 @@
     <Compile Include="ICloneable.cs" />
     <Compile Include="IMergedData.cs" />
     <Compile Include="IOrdered.cs" />
-    <Compile Include="Data\ISoftDeletable.cs" />
     <Compile Include="IStartupTask.cs" />
     <Compile Include="IWorkContext.cs" />
     <Compile Include="Localization\LocalizedString.cs" />
@@ -156,6 +152,7 @@
     <Compile Include="OperationResuleGeneric.cs" />
     <Compile Include="OperationResult.cs" />
     <Compile Include="OperationResultType.cs" />
+    <Compile Include="PagingResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singletons\Singleton.cs" />
     <Compile Include="Singletons\SingletonDictionary.cs" />

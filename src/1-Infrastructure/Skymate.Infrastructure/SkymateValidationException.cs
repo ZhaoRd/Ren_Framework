@@ -1,37 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="SkymateValidationException.cs" company="Skymate">
+//   Copyright © 2015 Skymate. All rights reserved.
+// </copyright>
+// <summary>
+//   Defines the SkymateValidationException type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Skymate
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// The skymate validation exception.
+    /// </summary>
     [Serializable]
     public class SkymateValidationException : SkymateException
-    {
-        /// <summary>
-        /// Detailed list of validation errors for this exception.
-        /// </summary>
-        public List<ValidationResult> ValidationErrors { get; set; }
-
+    {   
         /// <summary>
         /// Constructor.
         /// </summary>
         public SkymateValidationException()
         {
-            ValidationErrors = new List<ValidationResult>();
+            this.ValidationErrors = new List<ValidationResult>();
         }
 
         /// <summary>
-        /// Constructor for serializing.
+        /// Initializes a new instance of the <see cref="SkymateValidationException"/> class.
         /// </summary>
+        /// <param name="serializationInfo">
+        /// The serialization info.
+        /// </param>
+        /// <param name="context">
+        /// The context.
+        /// </param>
         public SkymateValidationException(SerializationInfo serializationInfo, StreamingContext context)
             : base(serializationInfo, context)
         {
-            ValidationErrors = new List<ValidationResult>();
+            this.ValidationErrors = new List<ValidationResult>();
         }
 
         /// <summary>
@@ -41,9 +50,8 @@ namespace Skymate
         public SkymateValidationException(string message)
             : base(message)
         {
-            ValidationErrors = new List<ValidationResult>();
+            this.ValidationErrors = new List<ValidationResult>();
         }
-
 
         /// <summary>
         /// Constructor.
@@ -53,7 +61,7 @@ namespace Skymate
         public SkymateValidationException(string message, List<ValidationResult> validationErrors)
             : base(message)
         {
-            ValidationErrors = validationErrors;
+            this.ValidationErrors = validationErrors;
         }
 
         /// <summary>
@@ -64,7 +72,12 @@ namespace Skymate
         public SkymateValidationException(string message, Exception innerException)
             : base(message, innerException)
         {
-            ValidationErrors = new List<ValidationResult>();
+            this.ValidationErrors = new List<ValidationResult>();
         }
+
+        /// <summary>
+        /// Detailed list of validation errors for this exception.
+        /// </summary>
+        public List<ValidationResult> ValidationErrors { get; set; }
     }
 }

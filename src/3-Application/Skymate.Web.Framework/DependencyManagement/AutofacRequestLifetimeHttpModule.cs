@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="AutofacRequestLifetimeHttpModule.cs" company="zhaord">
+// <copyright file="AutofacRequestLifetimeHttpModule.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // <summary>

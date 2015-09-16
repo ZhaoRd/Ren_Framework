@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="FormValueRequirementRule.cs" company="zhaord">
+// <copyright file="FormValueRequirementRule.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------

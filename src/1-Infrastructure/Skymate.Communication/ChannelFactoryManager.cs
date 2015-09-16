@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ChannelFactoryManager.cs" company="">
+// <copyright file="ChannelFactoryManager.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved
 // </copyright>
 // <summary>
@@ -35,12 +35,18 @@ namespace Skymate.Communication
         /// <summary>
         /// The instance.
         /// </summary>
-        private static readonly ChannelFactoryManager instance = new ChannelFactoryManager();
+        private static readonly ChannelFactoryManager ChannelInstance = new ChannelFactoryManager();
         #endregion
 
         #region Ctor
-        static ChannelFactoryManager() { }
-        private ChannelFactoryManager() { }
+
+        /// <summary>
+        /// Prevents a default instance of the <see cref="ChannelFactoryManager"/> class from being created.
+        /// </summary>
+        private ChannelFactoryManager()
+        {
+        }
+
         #endregion
 
         #region Public Properties
@@ -49,7 +55,7 @@ namespace Skymate.Communication
         /// </summary>
         public static ChannelFactoryManager Instance
         {
-            get { return instance; }
+            get { return ChannelInstance; }
         }
         #endregion
 
@@ -59,23 +65,30 @@ namespace Skymate.Communication
         /// </summary>
         /// <typeparam name="T">服务契约的类型。</typeparam>
         /// <returns>与指定服务契约类型相关的Channel Factory实例。</returns>
-        public ChannelFactory<T> GetFactory<T>()
-            where T : class//, IApplicationServiceContract
+        public ChannelFactory<T> GetFactory<T>() where T : class //, IApplicationServiceContract
         {
             lock (Sync)
             {
                 ChannelFactory factory = null;
-                if (!Factories.TryGetValue(typeof(T), out factory))
+                if (Factories.TryGetValue(typeof(T), out factory))
                 {
-                    factory = new ChannelFactory<T>(typeof(T).Name);
-                    factory.Open();
-                    Factories.Add(typeof(T), factory);
+                    return factory as ChannelFactory<T>;
                 }
+
+                factory = new ChannelFactory<T>(typeof(T).Name);
+                factory.Open();
+                Factories.Add(typeof(T), factory);
                 return factory as ChannelFactory<T>;
             }
         }
         #endregion
 
+        /// <summary>
+        /// The on dispose.
+        /// </summary>
+        /// <param name="disposing">
+        /// The disposing.
+        /// </param>
         protected override void OnDispose(bool disposing)
         {
             if (disposing)

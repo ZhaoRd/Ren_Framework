@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="NotifyAttribute.cs" company="zhaord">
+// <copyright file="NotifyAttribute.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ namespace Skymate.Web.Attributes
         /// <summary>
         /// The notifications key.
         /// </summary>
-        internal const string NotificationsKey = "zrd.notifications.all";
+        internal const string NotificationsKey = "skymate.notifications.all";
 
         /// <summary>
         /// Gets or sets the notifier.

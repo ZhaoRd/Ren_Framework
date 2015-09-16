@@ -92,7 +92,7 @@ namespace Skymate.Collections
             if (threadSafe)
             {
                 this.items = new ConcurrentDictionary<TKey, ICollection<TValue>>();
-                this.listCreator = () => new SynchronizedCollection<TValue>();
+                /*this.listCreator = () => new SynchronizedCollection<TValue>();*/
             }
             else
             {
