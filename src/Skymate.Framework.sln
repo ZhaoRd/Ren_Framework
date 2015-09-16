@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Infrastructure", "1-Infrastructure", "{00750C73-AF23-49E7-852B-62A5C6C7D9C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Application", "3-Application", "{6ACC3271-2C3E-4C94-8AA4-8BA20CC356C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0F7694E1-49EC-4E94-8DD2-E031AA06246B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.Infrastructure", "1-Infrastructure\Skymate.Infrastructure\Skymate.Infrastructure.csproj", "{C7CBFFE0-70FF-4C99-A717-5F819DC3392F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.Web.Framework", "3-Application\Skymate.Web.Framework\Skymate.Web.Framework.csproj", "{E1B3354B-CC5B-4948-8A77-330F2736B32E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.ServiceContracts", "3-Application\Skymate.ServiceContracts\Skymate.ServiceContracts.csproj", "{8AEDD388-59A0-4CCB-85C3-F9E5681F1C47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.EntityFramework", "1-Infrastructure\Skymate.EntityFramework\Skymate.EntityFramework.csproj", "{A7A23E12-6ABA-4E51-B929-35DA48480C1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7CBFFE0-70FF-4C99-A717-5F819DC3392F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7CBFFE0-70FF-4C99-A717-5F819DC3392F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7CBFFE0-70FF-4C99-A717-5F819DC3392F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7CBFFE0-70FF-4C99-A717-5F819DC3392F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B3354B-CC5B-4948-8A77-330F2736B32E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B3354B-CC5B-4948-8A77-330F2736B32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B3354B-CC5B-4948-8A77-330F2736B32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B3354B-CC5B-4948-8A77-330F2736B32E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AEDD388-59A0-4CCB-85C3-F9E5681F1C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AEDD388-59A0-4CCB-85C3-F9E5681F1C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AEDD388-59A0-4CCB-85C3-F9E5681F1C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AEDD388-59A0-4CCB-85C3-F9E5681F1C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7A23E12-6ABA-4E51-B929-35DA48480C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A23E12-6ABA-4E51-B929-35DA48480C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A23E12-6ABA-4E51-B929-35DA48480C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A23E12-6ABA-4E51-B929-35DA48480C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7CBFFE0-70FF-4C99-A717-5F819DC3392F} = {00750C73-AF23-49E7-852B-62A5C6C7D9C0}
+		{A7A23E12-6ABA-4E51-B929-35DA48480C1B} = {00750C73-AF23-49E7-852B-62A5C6C7D9C0}
+		{E1B3354B-CC5B-4948-8A77-330F2736B32E} = {6ACC3271-2C3E-4C94-8AA4-8BA20CC356C3}
+		{8AEDD388-59A0-4CCB-85C3-F9E5681F1C47} = {6ACC3271-2C3E-4C94-8AA4-8BA20CC356C3}
+	EndGlobalSection
+EndGlobal
