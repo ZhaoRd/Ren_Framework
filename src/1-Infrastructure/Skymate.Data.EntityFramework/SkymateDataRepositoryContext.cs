@@ -12,11 +12,14 @@ namespace Skymate.Data.EntityFramework
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
 
     using Apworks.Repositories.EntityFramework;
 
     using Skymate.Engines;
+    using Skymate.Entities;
     using Skymate.Entities.Auditing;
+    using Skymate.Extensions;
 
     /// <summary>
     /// The skymate data repository context.
@@ -51,25 +54,24 @@ namespace Skymate.Data.EntityFramework
         /// </param>
         public override void RegisterNew(object obj)
         {
-            var toAddObject = obj;
-            if (obj is IHasCreationTime)
+            var entry = this.Context.Entry(obj);
+            base.RegisterNew(obj);
+
+            if (entry.Entity is IHasCreationTime)
             {
-                var newObject = (IHasCreationTime)toAddObject;
-                newObject.CreationTime = DateTime.Now;
-                toAddObject = newObject;
+                entry.Cast<IHasCreationTime>().Entity.CreationTime = DateTime.Now;
             }
 
-            if (obj is ICreationAudited)
+            if (!(entry.Entity is ICreationAudited))
             {
-                if (this.workContext != null && !string.IsNullOrEmpty(this.workContext.CurrentCustomerId))
-                {
-                    var newObject = (ICreationAudited)toAddObject;
-                    newObject.CreatorUserId = Guid.Parse(this.workContext.CurrentCustomerId);
-                    toAddObject = newObject;
-                }
+                return;
             }
 
-            base.RegisterNew(toAddObject);
+            if (this.workContext != null && !string.IsNullOrEmpty(this.workContext.CurrentCustomerId))
+            {
+                entry.Cast<ICreationAudited>().Entity.CreatorUserId = Guid.Parse(
+                    this.workContext.CurrentCustomerId);
+            }
         }
 
         /// <summary>
@@ -80,20 +82,32 @@ namespace Skymate.Data.EntityFramework
         /// </param>
         public override void RegisterModified(object obj)
         {
-            var newObject = obj as IModificationAudited;
-            if (newObject == null)
+            var entry = this.Context.Entry(obj);
+            base.RegisterModified(obj);
+
+            this.SetModificationAuditProperties(entry);
+
+            if (entry.Entity is ISoftDelete && entry.Entity.As<ISoftDelete>().IsDeleted)
             {
-                base.RegisterModified(obj);
+                if (entry.Entity is IDeletionAudited)
+                {
+                    this.SetDeletionAuditProperties(entry.Entity.As<IDeletionAudited>());
+                }
+            }
+        }
+
+        protected virtual void SetModificationAuditProperties(DbEntityEntry entry)
+        {
+            if (!(entry.Entity is IModificationAudited))
+            {
                 return;
             }
-            
-            newObject.LastModificationTime = DateTime.Now;
+
+            entry.Cast<IModificationAudited>().Entity.LastModificationTime = DateTime.Now;
             if (this.workContext != null && !string.IsNullOrEmpty(this.workContext.CurrentCustomerId))
             {
-                newObject.LastModifierUserId = Guid.Parse(this.workContext.CurrentCustomerId);
+                entry.Cast<IModificationAudited>().Entity.LastModifierUserId = Guid.Parse(this.workContext.CurrentCustomerId);
             }
-
-            base.RegisterModified(newObject);
         }
 
         /// <summary>
@@ -104,20 +118,41 @@ namespace Skymate.Data.EntityFramework
         /// </param>
         public override void RegisterDeleted(object obj)
         {
-            var newObject = obj as IDeletionAudited;
-            if (newObject == null)
+            // Todo: 此处应该为软删除
+            base.RegisterDeleted(obj);
+            /*var entry = this.Context.Entry(obj);
+
+            base.RegisterDeleted(entry);
+
+            if (!(entry.Entity is ISoftDelete))
             {
-                base.RegisterDeleted(obj);
                 return;
             }
 
-            newObject.DeletionTime = DateTime.Now;
-            if (this.workContext != null && !string.IsNullOrEmpty(this.workContext.CurrentCustomerId))
+            var softDeleteEntry = entry.Cast<ISoftDelete>();
+
+            softDeleteEntry.State = EntityState.Unchanged;
+            softDeleteEntry.Entity.IsDeleted = true;
+
+            if (!(entry.Entity is IDeletionAudited))
             {
-                newObject.DeleterUserId = Guid.Parse(this.workContext.CurrentCustomerId);
+                return;
             }
 
-            base.RegisterDeleted(newObject);
+            entry.Cast<IDeletionAudited>().Entity.DeletionTime = DateTime.Now;
+            if (this.workContext != null && !string.IsNullOrEmpty(this.workContext.CurrentCustomerId))
+            {
+                entry.Cast<IDeletionAudited>().Entity.DeleterUserId = Guid.Parse(this.workContext.CurrentCustomerId);
+            }*/
+        }
+
+        protected virtual void SetDeletionAuditProperties(IDeletionAudited entity)
+        {
+            entity.DeletionTime = DateTime.Now;
+            if (this.workContext != null && !string.IsNullOrEmpty(this.workContext.CurrentCustomerId))
+            {
+                entity.DeleterUserId = Guid.Parse(this.workContext.CurrentCustomerId);
+            }
         }
     }
 }
