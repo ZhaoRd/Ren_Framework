@@ -54,8 +54,8 @@ namespace Skymate
         public int Total { get; private set; }
 
         /// <summary>
-        /// Gets or sets the list.
+        /// Gets the list.
         /// </summary>
-        public IEnumerable<T> List { get; set; }
+        public IEnumerable<T> List { get; private set; }
     }
 }

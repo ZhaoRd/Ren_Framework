@@ -10,11 +10,9 @@ namespace Skymate.Engines
     using System.Configuration;
     using System.Runtime.CompilerServices;
 
+    using Skymate.Extensions;
     using Skymate.Singletons;
     using Skymate.Utilities;
-
-    using Skymate;
-    using Skymate.Extensions;
 
     /// <summary>
     /// Provides access to the singleton instance of the SmartStore engine.

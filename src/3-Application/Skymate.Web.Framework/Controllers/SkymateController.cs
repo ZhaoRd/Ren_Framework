@@ -12,10 +12,12 @@ namespace Skymate.Web.Controllers
     using System;
     using System.Web.Mvc;
 
-    using Skymate.Data.Notifies;
-    using Skymate.Engines;
-    using Skymate.Extensions;
-    using Skymate.Web.Attributes;
+    using Data.Notifies;
+    using Engines;
+    using Extensions;
+    using Attributes;
+
+    using Castle.Core.Logging;
 
     /// <summary>
     /// The base controller.
@@ -24,6 +26,23 @@ namespace Skymate.Web.Controllers
     [Notify]
     public abstract class SkymateController : Controller
     {
+        private ILogger logger;
+
+        /// <summary>
+        /// 属性注入日志
+        /// </summary>
+        public ILogger Logger
+        {
+            get
+            {
+                if (logger==null)
+                {
+                    logger = EngineContext.Current.Resolve<ILogger>();
+                }
+                return logger;
+            }
+        }
+
         /// <summary>
         /// The notifier.
         /// </summary>
@@ -132,6 +151,8 @@ namespace Skymate.Web.Controllers
             var workContext = EngineContext.Current.Resolve<IWorkContext>();
 
             var customer = workContext.CurrentCustomerId;
+            this.Logger.Error(exc.Message, exc);
         }
+        
     }
 }

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Infrastructure", "1-Infrastructure", "{00750C73-AF23-49E7-852B-62A5C6C7D9C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Application", "3-Application", "{6ACC3271-2C3E-4C94-8AA4-8BA20CC356C3}"
@@ -12,13 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0F7694
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.Infrastructure", "1-Infrastructure\Skymate.Infrastructure\Skymate.Infrastructure.csproj", "{C7CBFFE0-70FF-4C99-A717-5F819DC3392F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate", "1-Infrastructure\Skymate.Infrastructure\Skymate.csproj", "{C7CBFFE0-70FF-4C99-A717-5F819DC3392F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.Web.Framework", "3-Application\Skymate.Web.Framework\Skymate.Web.Framework.csproj", "{E1B3354B-CC5B-4948-8A77-330F2736B32E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.Communication", "1-Infrastructure\Skymate.Communication\Skymate.Communication.csproj", "{0A978E1D-58B8-4E01-8B2E-B096D9F3D569}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.Data.EntityFramework", "1-Infrastructure\Skymate.Data.EntityFramework\Skymate.Data.EntityFramework.csproj", "{AEB704FA-37CF-4EF2-A9EA-9B50D7F7C0FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.EntityFramework", "1-Infrastructure\Skymate.Data.EntityFramework\Skymate.EntityFramework.csproj", "{AEB704FA-37CF-4EF2-A9EA-9B50D7F7C0FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,8 +50,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C7CBFFE0-70FF-4C99-A717-5F819DC3392F} = {00750C73-AF23-49E7-852B-62A5C6C7D9C0}
+		{E1B3354B-CC5B-4948-8A77-330F2736B32E} = {6ACC3271-2C3E-4C94-8AA4-8BA20CC356C3}
 		{0A978E1D-58B8-4E01-8B2E-B096D9F3D569} = {00750C73-AF23-49E7-852B-62A5C6C7D9C0}
 		{AEB704FA-37CF-4EF2-A9EA-9B50D7F7C0FF} = {00750C73-AF23-49E7-852B-62A5C6C7D9C0}
-		{E1B3354B-CC5B-4948-8A77-330F2736B32E} = {6ACC3271-2C3E-4C94-8AA4-8BA20CC356C3}
 	EndGlobalSection
 EndGlobal

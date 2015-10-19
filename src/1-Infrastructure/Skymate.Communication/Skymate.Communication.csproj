@@ -45,9 +45,9 @@
     <Compile Include="ServiceProxy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Skymate.Infrastructure\Skymate.Infrastructure.csproj">
+    <ProjectReference Include="..\Skymate.Infrastructure\Skymate.csproj">
       <Project>{c7cbffe0-70ff-4c99-a717-5f819dc3392f}</Project>
-      <Name>Skymate.Infrastructure</Name>
+      <Name>Skymate</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

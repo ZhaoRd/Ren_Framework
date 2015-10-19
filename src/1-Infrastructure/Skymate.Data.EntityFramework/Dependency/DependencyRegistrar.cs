@@ -7,21 +7,18 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Skymate.Web.Dependency
+namespace Skymate.EntityFramework.Dependency
 {
     using System.Data.Entity;
-    using System.Linq;
 
     using Apworks.Repositories;
-    using Apworks.Repositories.EntityFramework;
 
     using Autofac;
 
-    using Skymate.Data.EntityFramework;
-    using Skymate.DependencyManagement;
-    using Skymate.Entities;
-    using Skymate.TypeFinders;
-   
+    using Data.EntityFramework;
+    using DependencyManagement;
+    using Entities;
+    using TypeFinders;
 
     /// <summary>
     /// The dependency registrar.

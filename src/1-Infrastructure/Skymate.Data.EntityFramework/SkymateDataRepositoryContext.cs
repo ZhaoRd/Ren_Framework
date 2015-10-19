@@ -8,7 +8,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Skymate.Data.EntityFramework
+namespace Skymate.EntityFramework
 {
     using System;
     using System.Data.Entity;
@@ -16,10 +16,10 @@ namespace Skymate.Data.EntityFramework
 
     using Apworks.Repositories.EntityFramework;
 
-    using Skymate.Engines;
-    using Skymate.Entities;
-    using Skymate.Entities.Auditing;
-    using Skymate.Extensions;
+    using Engines;
+    using Entities;
+    using Entities.Auditing;
+    using Extensions;
 
     /// <summary>
     /// The skymate data repository context.
@@ -87,15 +87,23 @@ namespace Skymate.Data.EntityFramework
 
             this.SetModificationAuditProperties(entry);
 
-            if (entry.Entity is ISoftDelete && entry.Entity.As<ISoftDelete>().IsDeleted)
+            if (!(entry.Entity is ISoftDelete) || !entry.Entity.As<ISoftDelete>().IsDeleted)
             {
-                if (entry.Entity is IDeletionAudited)
-                {
-                    this.SetDeletionAuditProperties(entry.Entity.As<IDeletionAudited>());
-                }
+                return;
+            }
+
+            if (entry.Entity is IDeletionAudited)
+            {
+                this.SetDeletionAuditProperties(entry.Entity.As<IDeletionAudited>());
             }
         }
 
+        /// <summary>
+        /// The set modification audit properties.
+        /// </summary>
+        /// <param name="entry">
+        /// The entry.
+        /// </param>
         protected virtual void SetModificationAuditProperties(DbEntityEntry entry)
         {
             if (!(entry.Entity is IModificationAudited))
@@ -118,9 +126,7 @@ namespace Skymate.Data.EntityFramework
         /// </param>
         public override void RegisterDeleted(object obj)
         {
-            // Todo: 此处应该为软删除
-            base.RegisterDeleted(obj);
-            /*var entry = this.Context.Entry(obj);
+            var entry = this.Context.Entry(obj);
 
             base.RegisterDeleted(entry);
 
@@ -143,9 +149,15 @@ namespace Skymate.Data.EntityFramework
             if (this.workContext != null && !string.IsNullOrEmpty(this.workContext.CurrentCustomerId))
             {
                 entry.Cast<IDeletionAudited>().Entity.DeleterUserId = Guid.Parse(this.workContext.CurrentCustomerId);
-            }*/
+            }
         }
 
+        /// <summary>
+        /// The set deletion audit properties.
+        /// </summary>
+        /// <param name="entity">
+        /// The entity.
+        /// </param>
         protected virtual void SetDeletionAuditProperties(IDeletionAudited entity)
         {
             entity.DeletionTime = DateTime.Now;
