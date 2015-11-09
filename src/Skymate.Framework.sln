@@ -22,6 +22,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.Communication", "1-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skymate.EntityFramework", "1-Infrastructure\Skymate.Data.EntityFramework\Skymate.EntityFramework.csproj", "{AEB704FA-37CF-4EF2-A9EA-9B50D7F7C0FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2CF41A83-1550-4648-99C6-E2C4AA062603}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkymateTests", "SkymateTests\SkymateTests.csproj", "{825A7BB4-8E08-43F1-A014-B8DAB4B14239}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +48,10 @@ Global
 		{AEB704FA-37CF-4EF2-A9EA-9B50D7F7C0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEB704FA-37CF-4EF2-A9EA-9B50D7F7C0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEB704FA-37CF-4EF2-A9EA-9B50D7F7C0FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{825A7BB4-8E08-43F1-A014-B8DAB4B14239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{825A7BB4-8E08-43F1-A014-B8DAB4B14239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{825A7BB4-8E08-43F1-A014-B8DAB4B14239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{825A7BB4-8E08-43F1-A014-B8DAB4B14239}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +61,6 @@ Global
 		{E1B3354B-CC5B-4948-8A77-330F2736B32E} = {6ACC3271-2C3E-4C94-8AA4-8BA20CC356C3}
 		{0A978E1D-58B8-4E01-8B2E-B096D9F3D569} = {00750C73-AF23-49E7-852B-62A5C6C7D9C0}
 		{AEB704FA-37CF-4EF2-A9EA-9B50D7F7C0FF} = {00750C73-AF23-49E7-852B-62A5C6C7D9C0}
+		{2CF41A83-1550-4648-99C6-E2C4AA062603} = {00750C73-AF23-49E7-852B-62A5C6C7D9C0}
 	EndGlobalSection
 EndGlobal

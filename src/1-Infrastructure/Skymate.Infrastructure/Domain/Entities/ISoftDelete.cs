@@ -1,24 +1,22 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IHasCreationTime.cs" company="Skymate">
-//  Copyright © 2015 Skymate. All rights reserved. 
+// <copyright file="ISoftDelete.cs" company="Skymate">
+//   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // <summary>
-//   定义拥有创建时间的接口.
+//   定义软删除接口
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Skymate.Entities.Auditing
+namespace Skymate.Domain.Entities
 {
-    using System;
-
     /// <summary>
-    /// 创建时间的接口.
+    /// 软删除接口.
     /// </summary>
-    public interface IHasCreationTime
+    public interface ISoftDelete
     {
         /// <summary>
-        /// 获取或设置实体的创建时间.
+        /// 标志实体已删除 
         /// </summary>
-        DateTime CreationTime { get; set; }
+        bool IsDeleted { get; set; }
     }
 }

@@ -1,29 +1,29 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="IDeletionAudited.cs" company="Skymate">
+// <copyright file="IModificationAudited.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved. 
 // </copyright>
 // <summary>
-//   定义删除审计接口.
+//   定义修改审计类型.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Skymate.Entities.Auditing
+namespace Skymate.Domain.Entities.Auditing
 {
     using System;
 
     /// <summary>
-    /// 删除审计接口.
+    /// 修改审计接口.
     /// </summary>
-    public interface IDeletionAudited : ISoftDelete
+    public interface IModificationAudited
     {
         /// <summary>
-        /// Which user deleted this entity?
+        /// 最后一次修改时间.
         /// </summary>
-        Guid? DeleterUserId { get; set; }
+        DateTime? LastModificationTime { get; set; }
 
         /// <summary>
-        /// Deletion time of this entity.
+        /// 最后一次修改者.
         /// </summary>
-        DateTime? DeletionTime { get; set; }
+        Guid? LastModifierUserId { get; set; }
     }
 }

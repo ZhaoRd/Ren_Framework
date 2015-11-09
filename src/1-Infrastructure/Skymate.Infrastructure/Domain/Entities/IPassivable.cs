@@ -1,22 +1,24 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ISoftDelete.cs" company="Skymate">
+// <copyright file="IPassivable.cs" company="Skymate">
 //   Copyright © 2015 Skymate. All rights reserved.
 // </copyright>
 // <summary>
-//   定义软删除接口
+//   定义启用禁用接口.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Skymate.Entities
+namespace Skymate.Domain.Entities
 {
     /// <summary>
-    /// 软删除接口.
+    /// 用来标识视图是否启用的接口.
     /// </summary>
-    public interface ISoftDelete
+    public interface IPassivable
     {
         /// <summary>
-        /// 标志实体已删除 
+        /// 获取或设置是否启用.
+        /// True:启用实体
+        /// False:禁用实体
         /// </summary>
-        bool IsDeleted { get; set; }
+        bool IsActive { get; set; }
     }
 }

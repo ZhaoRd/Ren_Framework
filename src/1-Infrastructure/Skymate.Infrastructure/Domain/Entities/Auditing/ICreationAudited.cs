@@ -7,7 +7,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Skymate.Entities.Auditing
+namespace Skymate.Domain.Entities.Auditing
 {
     using System;
 

@@ -17,9 +17,11 @@ namespace Skymate.EntityFramework
     using Apworks.Repositories.EntityFramework;
 
     using Engines;
-    using Entities;
-    using Entities.Auditing;
+    
     using Extensions;
+
+    using Skymate.Domain.Entities;
+    using Skymate.Domain.Entities.Auditing;
 
     /// <summary>
     /// The skymate data repository context.

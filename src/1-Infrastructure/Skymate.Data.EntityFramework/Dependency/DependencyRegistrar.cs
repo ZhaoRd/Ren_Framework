@@ -17,7 +17,9 @@ namespace Skymate.EntityFramework.Dependency
 
     using Data.EntityFramework;
     using DependencyManagement;
-    using Entities;
+    
+    using Skymate.Domain.Entities;
+
     using TypeFinders;
 
     /// <summary>

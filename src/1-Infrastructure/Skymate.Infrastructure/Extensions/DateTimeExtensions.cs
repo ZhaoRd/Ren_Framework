@@ -564,6 +564,7 @@ namespace Skymate.Extensions
         /// <summary>
         /// Get the first day of the month for
         /// any full date submitted
+        /// 获取月的第一天的日期
         /// </summary>
         /// <param name="date">
         /// 日期
@@ -581,6 +582,7 @@ namespace Skymate.Extensions
         /// <summary>
         /// Get the last day of the month for any
         /// full date
+        /// 获取月的最后一天的日期
         /// </summary>
         /// <param name="date">
         /// 日期
@@ -595,6 +597,68 @@ namespace Skymate.Extensions
             to = to.AddDays(-to.Day);
             return to;
         }
+
+        /// <summary>
+        /// The get first day of week.
+        /// 获取指定日期所在周的开始日期
+        /// </summary>
+        /// <param name="date">
+        /// The date.
+        /// </param>
+        /// <returns>
+        /// The <see cref="DateTime"/>.
+        /// </returns>
+        public static DateTime GetFirstDayOfWeek(this DateTime date)
+        {
+            var from = date;
+            from = from.AddDays(-(int)(from.DayOfWeek) + 1);
+            return from;
+        }
+
+        /// <summary>
+        /// 获取指定日期所在周的最后一天的日期.
+        /// </summary>
+        /// <param name="date">
+        /// The date.
+        /// </param>
+        /// <returns>
+        /// The <see cref="DateTime"/>.
+        /// </returns>
+        public static DateTime GetLastDayOfWeek(this DateTime date)
+        {
+            var from = date;
+            from = from.AddDays(7 - (int)from.DayOfWeek);
+            return from;
+        }
+
+        /// <summary>
+        /// 获取指定日期所在年的第一天.
+        /// </summary>
+        /// <param name="date">
+        /// The date.
+        /// </param>
+        /// <returns>
+        /// The <see cref="DateTime"/>.
+        /// </returns>
+        public static DateTime GetFirstDayOfYear(this DateTime date)
+        {
+            return new DateTime(date.Year, 1, 1);
+        }
+
+        /// <summary>
+        /// 获取指定日期所在年的最后一天.
+        /// </summary>
+        /// <param name="date">
+        /// The date.
+        /// </param>
+        /// <returns>
+        /// The <see cref="DateTime"/>.
+        /// </returns>
+        public static DateTime GetLastDayOfYear(this DateTime date)
+        {
+            return new DateTime(date.Year, 12, 31);
+        }
+
 
         /// <summary>
         /// The to start of the day.

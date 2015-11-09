@@ -9,8 +9,8 @@ namespace Skymate.Data.EntityFramework
     using Apworks;
     using Apworks.Repositories;
 
-    using Skymate.Entities;
-
+    using Skymate.Domain.Entities;
+    
     /// <summary>
     /// The unit of work.
     /// </summary>
